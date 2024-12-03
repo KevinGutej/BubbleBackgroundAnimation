@@ -1,56 +1,49 @@
 const canvas = document.getElementById("animationCanvas");
-const context = canvas.getContext("2d");
+const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-class Circle {
+class Bubble {
   constructor() {
-    this.posX = canvas.width * 0.75 + Math.random() * canvas.width * 0.25;
-    this.posY = Math.random() * canvas.height;
-    this.radius = Math.random() * 60 + 40;
-    this.velocity = Math.random() * 0.4 + 0.2;
-    this.opacity = Math.random() * 0.5 + 0.3;
+    this.x = canvas.width * 0.75 + Math.random() * canvas.width * 0.25;
+    this.y = Math.random() * canvas.height;
+    this.radius = Math.random() * 50 + 30;
+    this.speed = Math.random() * 0.3 + 0.2;
+    this.color = `rgba(255, 99, 71, ${Math.random() * 0.5 + 0.3})`;
   }
 
-  render() {
-    context.beginPath();
-    context.arc(this.posX, this.posY, this.radius, 0, Math.PI * 2);
-    context.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-    context.fill();
-    context.closePath();
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+    ctx.closePath();
   }
 
-  move() {
-    this.posY -= this.velocity;
-    if (this.posY + this.radius < 0) {
-      this.posY = canvas.height + this.radius;
-      this.posX = canvas.width * 0.75 + Math.random() * canvas.width * 0.25;
+  update() {
+    this.y -= this.speed;
+    if (this.y + this.radius < 0) {
+      this.y = canvas.height + this.radius;
+      this.x = canvas.width * 0.75 + Math.random() * canvas.width * 0.25;
     }
   }
 }
 
-const circles = Array.from({ length: 8 }, () => new Circle());
+const bubbles = Array.from({ length: 8 }, () => new Bubble());
 
-function resizeCanvas() {
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  bubbles.forEach((bubble) => {
+    bubble.update();
+    bubble.draw();
+  });
+  requestAnimationFrame(animate);
+}
+
+window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  circles.forEach((circle) => {
-    circle.posX = canvas.width * 0.75 + Math.random() * canvas.width * 0.25;
-    circle.posY = Math.random() * canvas.height;
-  });
-}
+});
 
-function animationLoop() {
-  context.clearRect(0, 0, canvas.width, canvas.height);
-  circles.forEach((circle) => {
-    circle.move();
-    circle.render();
-  });
-  requestAnimationFrame(animationLoop);
-}
-
-window.addEventListener("resize", resizeCanvas);
-
-resizeCanvas();
-animationLoop();
+animate();
