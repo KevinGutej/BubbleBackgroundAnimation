@@ -1,18 +1,18 @@
 html, body {
-  height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  height: 100%;
   font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
 }
 
 body {
   background: linear-gradient(to bottom right, #ff4500, #ff7f50, #ffa07a);
   background-size: 200% 200%;
-  animation: shiftGradient 15s ease infinite;
+  animation: gradientShift 15s ease infinite;
 }
 
-@keyframes shiftGradient {
+@keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
@@ -26,60 +26,148 @@ canvas {
   z-index: 0;
 }
 
-.form-container {
-  position: relative;
-  z-index: 1;
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  color: #fff;
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
 }
 
-.form-container h1 {
-  text-align: center;
-  margin-bottom: 20px;
+nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  color: #ffa07a;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.nav-links li {
+  margin: 0 10px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
   color: #ffa07a;
 }
 
-.form-group {
-  margin-bottom: 15px;
+.cta-btn {
+  background: #ff6347;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+.cta-btn:hover {
+  background: #ff4500;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+.hero-text h1 {
+  color: #ffa07a;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.about-section, .features-section, .contact-section {
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  margin: 20px auto;
+  border-radius: 10px;
+  max-width: 900px;
+}
+
+.about-section h2, .features-section h2, .contact-section h2 {
+  color: #ffa07a;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.features-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.feature-item {
+  background: rgba(255, 99, 71, 0.8);
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 250px;
+  text-align: center;
+}
+
+form {
+  margin-top: 20px;
 }
 
 input, textarea {
   width: 100%;
   padding: 10px;
+  margin-bottom: 15px;
   border: none;
   border-radius: 5px;
   background: #333;
   color: #fff;
-  font-size: 1rem;
 }
 
-textarea {
-  resize: none;
-}
-
-button {
+button[type="submit"] {
   width: 100%;
   padding: 10px;
   background: #ff6347;
+  color: #fff;
   border: none;
   border-radius: 5px;
-  color: #fff;
-  font-size: 1.2rem;
   cursor: pointer;
   transition: background 0.3s;
 }
 
-button:hover {
+button[type="submit"]:hover {
   background: #ff4500;
 }
