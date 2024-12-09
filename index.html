@@ -1,77 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bubble Animation</title>
+  <title>Bubble Animation Home</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <canvas id="animationCanvas"></canvas>
+
   <header>
     <nav>
       <div class="logo">BubbleSite</div>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#features">Features</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button class="cta-btn">Get Started</button>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Welcome to BubbleSite</h1>
-        <p>A creative space for ideas, animation, and interaction. Explore the possibilities with our unique design.</p>
-        <button class="cta-btn">Learn More</button>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Welcome to BubbleSite</h1>
+      <p>Creative designs, interactive experiences, and innovative solutions tailored for you.</p>
+      <button class="cta-btn">Explore Now</button>
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <h2>About Us</h2>
+    <p>At BubbleSite, we specialize in crafting visually stunning websites that combine innovative design with
+      cutting-edge technology.</p>
+    <img src="about-image.jpg" alt="About Us" class="section-image">
+  </section>
+
+  <section id="services" class="services-section">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-item">
+        <h3>Web Design</h3>
+        <p>Custom, responsive designs that captivate and engage users.</p>
       </div>
-    </section>
-
-    <section id="about" class="about-section">
-      <h2>About Us</h2>
-      <p>BubbleSite is your portal to creative, interactive, and visually stunning web designs. With fluid animations and responsive layouts, we create unforgettable user experiences.</p>
-    </section>
-
-    <section id="features" class="features-section">
-      <h2>Our Features</h2>
-      <div class="features-grid">
-        <div class="feature-item">
-          <h3>Interactive Animations</h3>
-          <p>Dynamic and visually engaging designs to captivate your audience.</p>
-        </div>
-        <div class="feature-item">
-          <h3>Responsive Design</h3>
-          <p>Optimized for all devices, ensuring seamless performance.</p>
-        </div>
-        <div class="feature-item">
-          <h3>Custom Solutions</h3>
-          <p>Tailored web experiences to meet your specific needs.</p>
-        </div>
+      <div class="service-item">
+        <h3>Web Development</h3>
+        <p>High-performance websites built with the latest technology.</p>
       </div>
-    </section>
+      <div class="service-item">
+        <h3>SEO Optimization</h3>
+        <p>Boost your visibility and reach your target audience effectively.</p>
+      </div>
+      <div class="service-item">
+        <h3>Brand Identity</h3>
+        <p>Create a memorable and impactful brand presence.</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact" class="contact-section">
-      <h2>Contact Us</h2>
-      <form id="contactForm">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Enter your name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email" required>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Write your message" rows="4" required></textarea>
-        </div>
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
-  </main>
+  <section id="features" class="features-section">
+    <h2>Our Features</h2>
+    <div class="features-grid">
+      <div class="feature-item">
+        <h3>Interactive Animations</h3>
+        <p>Dynamic designs that bring your ideas to life.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Scalability</h3>
+        <p>Solutions that grow with your business.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Custom Solutions</h3>
+        <p>Tailored experiences that meet your specific needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials-section">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonials-carousel">
+      <div class="testimonial-item">
+        <p>"BubbleSite transformed our online presence. Our sales have doubled!"</p>
+        <h4>- Sarah Johnson</h4>
+      </div>
+      <div class="testimonial-item">
+        <p>"Their designs are stunning, and the support is unmatched."</p>
+        <h4>- James Carter</h4>
+      </div>
+      <div class="testimonial-item">
+        <p>"An absolute pleasure to work with. Highly recommended."</p>
+        <h4>- Emily Davis</h4>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Write your message" rows="4" required></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="social-icons">
+        <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+        <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+        <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+      </div>
+    </div>
+  </footer>
 
   <script type="module" src="script.js"></script>
 </body>
+
 </html>
