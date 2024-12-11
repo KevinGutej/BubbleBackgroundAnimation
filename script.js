@@ -47,3 +47,39 @@ window.addEventListener("resize", () => {
 });
 
 animate();
+
+window.addEventListener("scroll", () => {
+  const navbar = document.querySelector("header");
+  navbar.classList.toggle("sticky", window.scrollY > 50);
+});
+
+const testimonials = document.querySelectorAll(".testimonial-item");
+let currentIndex = 0;
+
+function showTestimonial(index) {
+  testimonials.forEach((testimonial, i) => {
+    testimonial.style.transform = `translateX(${(i - index) * 100}%)`;
+    testimonial.style.transition = "transform 0.5s ease-in-out";
+  });
+}
+
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % testimonials.length;
+  showTestimonial(currentIndex);
+}, 5000);
+
+const animatedSections = document.querySelectorAll(".animate-on-scroll");
+
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animated");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
+
+animatedSections.forEach((section) => observer.observe(section));
